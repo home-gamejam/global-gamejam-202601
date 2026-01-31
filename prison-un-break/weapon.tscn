@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b08r7k3srfxcl"]
+
+[ext_resource type="Texture2D" uid="uid://8s3dopi00aof" path="res://sprites/gun.png" id="1_swcir"]
+
+[node name="Weapon" type="Node2D" unique_id=2119980579]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1333862878]
+position = Vector2(16, 0)
+texture = ExtResource("1_swcir")

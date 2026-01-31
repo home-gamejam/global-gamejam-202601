@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://dwkae8ywowlp8"]
 
 [ext_resource type="Script" uid="uid://d0s8y5bd2oxbo" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://cr2bvle3d6abx" path="res://icon.svg" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://c05cxmhw2ba4t" path="res://sprites/guy.png" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://b08r7k3srfxcl" path="res://weapon.tscn" id="3_i3pqv"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1944912259]
 script = ExtResource("1_4flbx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1257037417]
 texture = ExtResource("2_onrkg")
+
+[node name="Weapon" parent="." unique_id=2119980579 instance=ExtResource("3_i3pqv")]
