@@ -10,7 +10,7 @@ const SPEED = 300
 
 func _ready() -> void:
 	hit_box.area_entered.connect(_bullet_collision)
-	owner.texture = mask_resource.bullet_texture
+	#owner.texture = mask_resource.bullet_texture
 	
 func _process(delta: float) -> void:
 	position += transform.x * SPEED * delta
