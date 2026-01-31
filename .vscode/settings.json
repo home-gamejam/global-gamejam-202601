@@ -1,0 +1,8 @@
+{
+  "files.exclude": {
+    "**/*.gd.uid": true,
+    "**/*.png.import": true
+  },
+  "godotTools.scenePreview.previewRelatedScenes": "anyFolder",
+  "godotTools.lsp.headless": false
+}

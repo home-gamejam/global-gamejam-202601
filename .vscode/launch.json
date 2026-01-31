@@ -1,0 +1,13 @@
+{
+  "configurations": [
+    {
+      "name": "Game",
+      "type": "godot",
+      "request": "launch",
+      "project": "${workspaceFolder}/bit-mask",
+      "debug_collisions": false,
+      "debug_paths": false,
+      "debug_navigation": false
+    }
+  ]
+}
