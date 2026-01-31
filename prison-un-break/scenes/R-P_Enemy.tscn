@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cr2bvle3d6abx" path="res://icon.svg" id="1_f50pn"]
 [ext_resource type="Script" uid="uid://cmst56q7tl4s2" path="res://scripts/hurtbox.gd" id="2_ghy6p"]
+[ext_resource type="Script" uid="uid://bh4ghuseskveo" path="res://scripts/hitbox.gd" id="3_qy8m0"]
 
 [sub_resource type="GDScript" id="GDScript_ij6vw"]
 resource_name = "RP-Npc"
@@ -10,14 +11,29 @@ script/source = "class_name Enemy
 extends CharacterBody2D
 
 @onready var hurt_box: HurtBox = $HurtBox
+@onready var hit_box: HitBox = $HitBox
 
-var speed = 10.0
+var speed = 50.0
 var health = 30
 
 func _ready():
 	velocity = Vector2(-200, -200).normalized() * speed
+	hit_box.area_entered.connect(_damage_collision)
+
 	
 	
+func _damage_collision(hurtbox: Area2D):
+	if hurtbox == null:
+		return
+	
+	if hurtbox.owner.has_method(\"take_damage\"):
+		hurtbox.owner.take_damage(hit_box.damage)
+		
+	if hurtbox.owner.health:
+		hurtbox.owner.health -= hit_box.damage
+		if hurtbox.owner.health <= 0:
+			print(\"ded :(\")
+			
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
@@ -29,6 +45,12 @@ func take_damage(amount: int):
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv0l5"]
 radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4k25"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o60t0"]
+radius = 15.0
 
 [node name="R-P NPC" type="CharacterBody2D" unique_id=1637594409]
 script = SubResource("GDScript_ij6vw")
@@ -45,3 +67,18 @@ script = ExtResource("2_ghy6p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=2064330356]
 shape = SubResource("CircleShape2D_vv0l5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1993201081]
+shape = SubResource("CircleShape2D_g4k25")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1283892853]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_qy8m0")
+damage = 5
+metadata/_custom_type_script = "uid://bh4ghuseskveo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1416927436]
+shape = SubResource("CircleShape2D_o60t0")
+debug_color = Color(0.84736145, 0, 0.45596242, 0.41960785)

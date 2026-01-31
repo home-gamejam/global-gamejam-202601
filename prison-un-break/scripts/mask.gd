@@ -10,6 +10,7 @@ extends Node2D
 
 @onready var muzzle: Marker2D = $Marker2D
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 const BULLET = preload("res://scenes/bullet.tscn")
 
@@ -25,3 +26,4 @@ func _input(event: InputEvent) -> void:
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.global_position = muzzle.global_position
 		bullet_instance.rotation = muzzle.rotation
+		audio.play()

@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var masks : Array[MaskResource]
 
 var colliding_mask: MaskItem = null
+var health : int = 20
 
 const SPEED : int = 80
 
@@ -59,6 +60,9 @@ func _hand_rotations():
 		mask.rotation_degrees = 0
 		mask.sprite.scale.y = 1
 		mask.sprite.rotation_degrees = 0
+		
+func take_damage(amount:int):
+	print("damaged")
 	
 func _physics_process(delta: float) -> void:
 	move_and_slide()
