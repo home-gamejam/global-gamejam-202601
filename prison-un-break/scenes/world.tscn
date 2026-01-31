@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://xpxwt73yi2qo" path="res://resources/boomerang_mask.tres" id="6_i7141"]
 [ext_resource type="Resource" uid="uid://sm7bhpkjkkaj" path="res://resources/unicorn_mask.tres" id="7_i7141"]
 [ext_resource type="AudioStream" uid="uid://be4a2qyrtuvpr" path="res://Sounds/mask.mp3" id="8_4mrxx"]
-[ext_resource type="Resource" uid="uid://c64koqekbkrua" path="res://resources/sword_mask.tres" id="9_w7kh3"]
+[ext_resource type="Resource" uid="uid://bo2o03fvlessp" path="res://resources/cyclops_mask.tres" id="9_w7kh3"]
 [ext_resource type="Resource" uid="uid://ck1ax4xojgg10" path="res://resources/ninja_mask.tres" id="10_e3hyu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
