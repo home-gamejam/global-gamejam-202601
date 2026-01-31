@@ -3,9 +3,13 @@ extends Node2D
 const SPEED = 300
 
 @onready var hit_box: HitBox = $HitBox
+@onready var mask: Mask = $"."
+
+@export var _mask_resource: MaskResource
 
 func _ready() -> void:
 	hit_box.area_entered.connect(_bullet_collision)
+	#mask_resource = mask.mask_resource == _mask_resource
 	
 func _process(delta: float) -> void:
 	position += transform.x * SPEED * delta

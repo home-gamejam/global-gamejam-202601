@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MaskResource" format=3 uid="uid://c64koqekbkrua"]
+
+[ext_resource type="Script" uid="uid://bmpvsy2rdhr0f" path="res://scripts/mask_resource.gd" id="1_opl8s"]
+[ext_resource type="Texture2D" uid="uid://bb5a3dh8lf2gy" path="res://sprites/sowrd.png" id="2_76gei"]
+
+[resource]
+script = ExtResource("1_opl8s")
+texture = ExtResource("2_76gei")
+damage = 40
+metadata/_custom_type_script = "uid://bmpvsy2rdhr0f"

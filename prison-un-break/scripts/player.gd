@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 @export var masks : Array[MaskResource]
 
+var current_mask_index : int = 0
+
 var colliding_mask: MaskItem = null
 var health : int = 20
 
@@ -39,6 +41,36 @@ func _handle_input():
 		masks.append(colliding_mask.mask_resource)
 		mask.mask_resource = colliding_mask.mask_resource
 		colliding_mask.queue_free()
+	
+	if Input.is_action_just_pressed("switch_mask"):
+		_select_next_item()
+	if Input.is_action_just_pressed("back_mask"):
+		_select_previous_item()
+	
+func _select_next_item():
+	if masks.size() == 0:
+		return
+	
+	current_mask_index = (current_mask_index + 1) % masks.size()
+	_update_current_mask()
+	
+func _select_previous_item():
+	if masks.size() == 0:
+		return
+	current_mask_index = (current_mask_index - 1) % masks.size()
+	_update_current_mask()
+	
+func _update_current_mask():
+	var selcted_mask = masks[current_mask_index]
+	mask.mask_resource = masks[current_mask_index]
+	#print("Current Mask:", selcted_mask)
+	
+func _swap_items(index_a: int, index_b: int):
+	if index_a >= 0 and index_a < masks.size() and index_b >=0 and index_b < masks.size():
+		var buffer = masks[index_a]
+		masks[index_a] = masks[index_b]
+		masks[index_b] = buffer
+		#print("Swapped Masks:", masks)
 	
 func _hand_rotations():
 	var mouse_pos = get_global_mouse_position()
