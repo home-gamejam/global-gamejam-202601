@@ -22,7 +22,8 @@ func _input(event: InputEvent) -> void:
 	if not is_active:
 		return
 	if event.is_action_pressed("lmb"):
-		var bullet_instance = BULLET.instantiate()
+		var bullet_instance : Bullet = BULLET.instantiate()
+		bullet_instance.mask_resource = mask_resource
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.global_position = muzzle.global_position
 		bullet_instance.rotation = muzzle.rotation

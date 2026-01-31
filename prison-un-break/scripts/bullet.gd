@@ -1,15 +1,15 @@
+class_name Bullet
 extends Node2D
 
 const SPEED = 300
 
 @onready var hit_box: HitBox = $HitBox
-@onready var mask: Mask = $"."
+@onready var mask: Mask
 
-@export var _mask_resource: MaskResource
+@export var mask_resource: MaskResource
 
 func _ready() -> void:
 	hit_box.area_entered.connect(_bullet_collision)
-	#mask_resource = mask.mask_resource == _mask_resource
 	
 func _process(delta: float) -> void:
 	position += transform.x * SPEED * delta
@@ -19,7 +19,7 @@ func _bullet_collision(hurtbox: Area2D):
 		return
 	
 	if hurtbox.owner.has_method("take_damage"):
-		hurtbox.owner.take_damage(hit_box.damage)
+		hurtbox.owner.take_damage(mask_resource.damage)
 		queue_free()
 		
 	if hurtbox.owner.health:

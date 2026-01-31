@@ -39,7 +39,7 @@ func _handle_input():
 	
 	if colliding_mask and Input.is_action_just_pressed("interact"):
 		masks.append(colliding_mask.mask_resource)
-		mask.mask_resource = colliding_mask.mask_resource
+		_update_current_mask()
 		colliding_mask.queue_free()
 	
 	if Input.is_action_just_pressed("switch_mask"):
@@ -61,8 +61,8 @@ func _select_previous_item():
 	_update_current_mask()
 	
 func _update_current_mask():
-	var selcted_mask = masks[current_mask_index]
 	mask.mask_resource = masks[current_mask_index]
+	mask.is_active = true
 	#print("Current Mask:", selcted_mask)
 	
 func _swap_items(index_a: int, index_b: int):

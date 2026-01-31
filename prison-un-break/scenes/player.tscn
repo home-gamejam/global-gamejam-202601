@@ -61,7 +61,6 @@ hframes = 7
 
 [node name="Mask" parent="." unique_id=2119980579 instance=ExtResource("3_i3pqv")]
 position = Vector2(3, -7)
-is_active = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=890291777]
 
