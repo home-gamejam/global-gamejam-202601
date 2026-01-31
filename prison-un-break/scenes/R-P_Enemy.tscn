@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://dv4c5wvld2g82"]
 
 [ext_resource type="Texture2D" uid="uid://cr2bvle3d6abx" path="res://icon.svg" id="1_f50pn"]
-[ext_resource type="Script" path="res://hurtbox.gd" id="2_ghy6p"]
+[ext_resource type="Script" uid="uid://cmst56q7tl4s2" path="res://scripts/hurtbox.gd" id="2_ghy6p"]
 
 [sub_resource type="GDScript" id="GDScript_ij6vw"]
 resource_name = "RP-Npc"
 script/source = "class_name Enemy
 
 extends CharacterBody2D
+
+@onready var hurt_box: HurtBox = $HurtBox
 
 var speed = 10.0
 var health = 30
@@ -20,6 +22,9 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
+		
+func take_damage(amount: int):
+	pass
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv0l5"]
@@ -34,6 +39,8 @@ scale = Vector2(0.140625, 0.140625)
 texture = ExtResource("1_f50pn")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=320614368]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("2_ghy6p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=2064330356]

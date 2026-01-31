@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b08r7k3srfxcl"]
+
+[ext_resource type="Script" uid="uid://dhilrhkyli18h" path="res://scripts/mask.gd" id="1_oilhy"]
+
+[node name="Mask" type="Node2D" unique_id=2119980579]
+script = ExtResource("1_oilhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1333862878]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1973018105]

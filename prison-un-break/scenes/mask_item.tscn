@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cyqjgn00w4joi"]
+
+[ext_resource type="Script" uid="uid://bq5vs1mr2k8ni" path="res://scripts/mask_item.gd" id="1_dpn7i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ott25"]
+radius = 13.038404
+
+[node name="MaskItem" type="Area2D" unique_id=1670828759]
+script = ExtResource("1_dpn7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2097336900]
+shape = SubResource("CircleShape2D_ott25")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1659722087]

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dwkae8ywowlp8"]
+
+[ext_resource type="Script" uid="uid://d0s8y5bd2oxbo" path="res://scripts/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://bng0udfqm4oou" path="res://sprites/guy-sheet.png" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://b08r7k3srfxcl" path="res://scenes/mask.tscn" id="3_i3pqv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0009999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "walk"
+length = 0.3
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dqkch"]
+_data = {
+&"RESET": SubResource("Animation_dqkch"),
+&"walk": SubResource("Animation_qhqgy")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=1944912259]
+script = ExtResource("1_4flbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1257037417]
+texture = ExtResource("2_qhqgy")
+hframes = 7
+
+[node name="Mask" parent="." unique_id=2119980579 instance=ExtResource("3_i3pqv")]
+position = Vector2(3, -7)
+is_active = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=890291777]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1687666662]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_dqkch")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=815643918]
+libraries/ = SubResource("AnimationLibrary_dqkch")
