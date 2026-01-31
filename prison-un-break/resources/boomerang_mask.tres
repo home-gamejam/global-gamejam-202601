@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MaskResource" format=3 uid="uid://xpxwt73yi2qo"]
+
+[ext_resource type="Script" uid="uid://bmpvsy2rdhr0f" path="res://scripts/mask_resource.gd" id="1_maxsg"]
+[ext_resource type="Texture2D" uid="uid://chlv7oek1fh2a" path="res://sprites/boomer.png" id="2_vkso3"]
+
+[resource]
+script = ExtResource("1_maxsg")
+texture = ExtResource("2_vkso3")
+damage = 10
+metadata/_custom_type_script = "uid://bmpvsy2rdhr0f"

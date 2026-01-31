@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MaskResource" format=3 uid="uid://bo2o03fvlessp"]
+
+[ext_resource type="Texture2D" uid="uid://0ny8e7df6fjn" path="res://sprites/bullet.png" id="1_vmpxq"]
+[ext_resource type="Script" uid="uid://bmpvsy2rdhr0f" path="res://scripts/mask_resource.gd" id="2_py8hr"]
+[ext_resource type="Texture2D" uid="uid://c6ysm11f4yusc" path="res://sprites/cysop.png" id="3_vjfcm"]
+
+[resource]
+script = ExtResource("2_py8hr")
+texture = ExtResource("3_vjfcm")
+damage = 20
+bullet_texture = ExtResource("1_vmpxq")
+metadata/_custom_type_script = "uid://bmpvsy2rdhr0f"

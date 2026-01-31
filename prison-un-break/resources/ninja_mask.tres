@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MaskResource" format=3 uid="uid://ck1ax4xojgg10"]
+
+[ext_resource type="Script" uid="uid://bmpvsy2rdhr0f" path="res://scripts/mask_resource.gd" id="1_ljkdi"]
+[ext_resource type="Texture2D" uid="uid://8s3dopi00aof" path="res://sprites/gun.png" id="2_2rfpm"]
+
+[resource]
+script = ExtResource("1_ljkdi")
+texture = ExtResource("2_2rfpm")
+damage = 10
+metadata/_custom_type_script = "uid://bmpvsy2rdhr0f"

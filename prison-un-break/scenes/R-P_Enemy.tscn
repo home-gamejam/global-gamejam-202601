@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dv4c5wvld2g82"]
+
+[ext_resource type="Texture2D" uid="uid://cxt0fsrhuk3mh" path="res://sprites/Sprite-0003.png" id="1_qy8m0"]
+[ext_resource type="Script" uid="uid://cmst56q7tl4s2" path="res://scripts/hurtbox.gd" id="2_ghy6p"]
+[ext_resource type="Script" uid="uid://bh4ghuseskveo" path="res://scripts/hitbox.gd" id="3_qy8m0"]
+
+[sub_resource type="GDScript" id="GDScript_ij6vw"]
+resource_name = "RP-Npc"
+script/source = "class_name Enemy
+
+extends CharacterBody2D
+
+@onready var hurt_box: HurtBox = $HurtBox
+@onready var hit_box: HitBox = $HitBox
+
+var speed = 50.0
+var health = 30
+
+func _ready():
+	velocity = Vector2(-200, -200).normalized() * speed
+	hit_box.area_entered.connect(_damage_collision)
+
+	
+	
+func _damage_collision(hurtbox: Area2D):
+	if hurtbox == null:
+		return
+	
+	if hurtbox.owner.has_method(\"take_damage\"):
+		hurtbox.owner.take_damage(hit_box.damage)
+		
+	if hurtbox.owner.health:
+		hurtbox.owner.health -= hit_box.damage
+		if hurtbox.owner.health <= 0:
+			print(\"ded :(\")
+			
+func _physics_process(delta):
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		velocity = velocity.bounce(collision.get_normal())
+		
+func take_damage(amount: int):
+	print(amount)
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qy8m0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o60t0"]
+height = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o60t0"]
+radius = 16.03122
+
+[node name="R-P NPC" type="CharacterBody2D" unique_id=1637594409]
+script = SubResource("GDScript_ij6vw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1946523572]
+position = Vector2(-4.7683716e-07, 8.34465e-07)
+texture = ExtResource("1_qy8m0")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=320614368]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_ghy6p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=2064330356]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_qy8m0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1993201081]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_o60t0")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1283892853]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_qy8m0")
+damage = 5
+metadata/_custom_type_script = "uid://bh4ghuseskveo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1416927436]
+visible = false
+shape = SubResource("CircleShape2D_o60t0")
+debug_color = Color(0.84736145, 0, 0.45596242, 0.41960785)
