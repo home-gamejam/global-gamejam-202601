@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cok15hp4v3324"]
+
+[ext_resource type="Script" uid="uid://07actfw4qqne" path="res://scripts/robot_character.gd" id="1_br0rw"]
+[ext_resource type="SpriteFrames" uid="uid://c6j3de11wvgtt" path="res://resources/bad_robot_sprite_frames.tres" id="2_ykvnc"]
+
+[node name="BadRobot" type="CharacterBody2D" unique_id=115827034]
+script = ExtResource("1_br0rw")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=12917835]
+sprite_frames = ExtResource("2_ykvnc")
+animation = &"walk"
+autoplay = "walk"
+offset = Vector2(0, -12.34)

@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://bygrm3d286qtw"]
 
+[ext_resource type="PackedScene" uid="uid://hiibt36bs4c7" path="res://scenes/mask.tscn" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://cok15hp4v3324" path="res://scenes/bad_robot.tscn" id="2_w7c3h"]
+
 [node name="Level" type="Node2D" unique_id=1681723993]
+
+[node name="Mask" parent="." unique_id=886344132 instance=ExtResource("1_2q6dc")]
+position = Vector2(798, 349)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1040721891]
+
+[node name="BadRobot" parent="Enemies" unique_id=115827034 instance=ExtResource("2_w7c3h")]
+position = Vector2(49, 58)
+
+[node name="BadRobot2" parent="Enemies" unique_id=967137593 instance=ExtResource("2_w7c3h")]
+position = Vector2(167, 85)

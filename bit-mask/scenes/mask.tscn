@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://hiibt36bs4c7"]
+
+[ext_resource type="Script" uid="uid://c3j0cghe2vha" path="res://scripts/mask_character.gd" id="1_in0c2"]
+[ext_resource type="Texture2D" uid="uid://bmhltmndl6k37" path="res://resources/mask_run_canvas_texture.tres" id="2_rv8xw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d8jk"]
+atlas = ExtResource("2_rv8xw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsism"]
+atlas = ExtResource("2_rv8xw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uscli"]
+atlas = ExtResource("2_rv8xw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a672"]
+atlas = ExtResource("2_rv8xw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_in0c2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d8jk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsism")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uscli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a672")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Mask" type="CharacterBody2D" unique_id=886344132]
+script = ExtResource("1_in0c2")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=155027818]
+sprite_frames = SubResource("SpriteFrames_in0c2")
+animation = &"walk"
+frame = 1
+frame_progress = 0.082289696
+offset = Vector2(0, -16)

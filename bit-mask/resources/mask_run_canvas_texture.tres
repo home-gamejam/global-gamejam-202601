@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://bmhltmndl6k37"]
+
+[ext_resource type="Texture2D" uid="uid://ci155sq13gmxu" path="res://assets/mask-run2.png" id="1_c8use"]
+[ext_resource type="Texture2D" uid="uid://b72lh615sx8qv" path="res://assets/mask-run-normal.png" id="2_po241"]
+
+[resource]
+diffuse_texture = ExtResource("1_c8use")
+normal_texture = ExtResource("2_po241")
