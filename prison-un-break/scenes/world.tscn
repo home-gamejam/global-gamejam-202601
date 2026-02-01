@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://bo2o03fvlessp" path="res://resources/cyclops_mask.tres" id="9_w7kh3"]
 [ext_resource type="Resource" uid="uid://ck1ax4xojgg10" path="res://resources/ninja_mask.tres" id="10_e3hyu"]
 [ext_resource type="Texture2D" uid="uid://cliuvyfnb37d0" path="res://sprites/Genie.png" id="11_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://cu6tv7wsy7pp5" path="res://scenes/pepo.tscn" id="12_q5onr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
 texture = ExtResource("2_i7141")
@@ -80,3 +81,6 @@ position = Vector2(739, 845)
 
 [node name="R-P NPC6" parent="." unique_id=1248341159 instance=ExtResource("3_4mrxx")]
 position = Vector2(1024, 760)
+
+[node name="Pepo" parent="." unique_id=767197393 instance=ExtResource("12_q5onr")]
+position = Vector2(-10, 775)
