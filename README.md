@@ -6,4 +6,8 @@
 
 Help your Blob-land friends escape Blob-land jail.
 
+![Face Escape](docs/face-escape.gif)
+
 [Play Face Escape Online](https://home-gamejam.github.io/global-gamejam-202601/prison/)
+
+[Face Escape Global Game Jam Link](https://globalgamejam.org/games/2026/face-escape-1)
