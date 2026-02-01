@@ -40,9 +40,11 @@ animations = [{
 }]
 
 [node name="Mask" type="CharacterBody2D" unique_id=886344132]
+motion_mode = 1
 script = ExtResource("1_in0c2")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=155027818]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_in0c2")
 animation = &"walk"
 frame = 1

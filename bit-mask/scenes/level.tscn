@@ -1,17 +1,83 @@
-[gd_scene format=3 uid="uid://bygrm3d286qtw"]
+[gd_scene format=4 uid="uid://bygrm3d286qtw"]
 
-[ext_resource type="PackedScene" uid="uid://hiibt36bs4c7" path="res://scenes/mask.tscn" id="1_2q6dc"]
-[ext_resource type="PackedScene" uid="uid://cok15hp4v3324" path="res://scenes/bad_robot.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://hiibt36bs4c7" path="res://characters/mask.tscn" id="1_2q6dc"]
+[ext_resource type="Texture2D" uid="uid://r8lvcjqfdgay" path="res://assets/tiles.png" id="1_w8frs"]
+[ext_resource type="PackedScene" uid="uid://cok15hp4v3324" path="res://characters/bad_robot.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://ckpvvpwfif1b1" path="res://scenes/switch.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://br18gx2odlwlx" path="res://characters/good_robot.tscn" id="5_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://2q1lhqiimg4m" path="res://characters/wise.tscn" id="6_2r41h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mx8sn"]
+texture = ExtResource("1_w8frs")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ppgk2"]
+sources/0 = SubResource("TileSetAtlasSource_mx8sn")
 
 [node name="Level" type="Node2D" unique_id=1681723993]
 
-[node name="Mask" parent="." unique_id=886344132 instance=ExtResource("1_2q6dc")]
-position = Vector2(798, 349)
+[node name="Tiles" type="TileMapLayer" parent="." unique_id=1650686426]
+tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAABAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAABAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAABAAAAAAALAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAARAAgAAAAAAAAAAAASAAgAAAAAAAAAAAATAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAVAAgAAAAAAAAAAAAWAAgAAAAAAAAAAAAXAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAZAAgAAAAAAAAAAAAaAAgAAAAAAAAAAAAbAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAdAAgAAAAAAAAAAAAeAAgAAAAAAAAAAAAfAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAhAAgAAAAAAAAAAAAiAAgAAAAAAAAAAAAjAAgAAAAAAAAAAAAkAAgAAAAAAAAAAAAlAAgAAAAAAAAAAAABABAAAAAAAAEAAAAAABEAAAADAAAAAAABABEAAAADAAAAAAACABEAAAADAAAAAAADABEAAAADAAAAAAAEABEAAAADAAAAAAAFABEAAAADAAAAAAAGABEAAAADAAAAAAAHABEAAAADAAAAAAAIABEAAAADAAAAAAAJABEAAAADAAAAAAAKABEAAAADAAAAAAALABEAAAADAAAAAAAMABEAAAADAAAAAAANABEAAAADAAAAAAAOABEAAAADAAAAAAAPABEAAAADAAAAAAAQABEAAAADAAAAAAARABEAAAADAAAAAAASABEAAAADAAAAAAATABEAAAADAAAAAAAUABEAAAADAAAAAAAVABEAAAADAAAAAAAWABEAAAADAAAAAAAXABEAAAADAAAAAAAYABEAAAADAAAAAAAZABEAAAADAAAAAAAaABEAAAADAAAAAAAbABEAAAADAAAAAAAcABEAAAADAAAAAAAdABEAAAADAAAAAAAeABEAAAADAAAAAAAfABEAAAADAAAAAAAgABEAAAADAAAAAAAhABEAAAADAAAAAAAiABEAAAADAAAAAAAjABEAAAADAAAAAAAkABEAAAADAAAAAAAlABEAAAADAAAAAAAmABEAAAADAAAAAAAmAAgAAAAAAAAAAAAnAAgAAAAAAAAAAAAnABEAAAADAAAAAAAEABAAAAAAAAEAAAAHABAAAAAAAAEAAAAKABAAAAAAAAEAAAAoABEAAAADAAAAAAApABEAAAADAAAAAAAqABEAAAADAAAAAAArABEAAAADAAAAAAAsABEAAAADAAAAAAAtABEAAAADAAAAAAAuABEAAAADAAAAAAAvABEAAAADAAAAAAAwABEAAAADAAAAAAAxABEAAAADAAAAAAAyABEAAAADAAAAAAAzABEAAAADAAAAAAAoAAgAAAAAAAAAAAApAAgAAAAAAAAAAAAqAAgAAAAAAAAAAAArAAgAAAAAAAAAAAAsAAgAAAAAAAAAAAAtAAgAAAAAAAAAAAAuAAgAAAAAAAAAAAAvAAgAAAAAAAAAAAAwAAgAAAAAAAAAAAAxAAgAAAAAAAAAAAAyAAgAAAAAAAAAAAAzAAgAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ppgk2")
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1040721891]
 
 [node name="BadRobot" parent="Enemies" unique_id=115827034 instance=ExtResource("2_w7c3h")]
-position = Vector2(49, 58)
+position = Vector2(24, 96)
 
 [node name="BadRobot2" parent="Enemies" unique_id=967137593 instance=ExtResource("2_w7c3h")]
-position = Vector2(167, 85)
+position = Vector2(120, 136)
+
+[node name="Mask" parent="Enemies" unique_id=886344132 instance=ExtResource("1_2q6dc")]
+position = Vector2(328, 80)
+
+[node name="GoodGuys" type="Node2D" parent="." unique_id=1062667288]
+
+[node name="GoodRobot" parent="GoodGuys" unique_id=1833882104 instance=ExtResource("5_ppgk2")]
+position = Vector2(24, 248)
+
+[node name="GoodRobot2" parent="GoodGuys" unique_id=1826311491 instance=ExtResource("5_ppgk2")]
+position = Vector2(72, 248)
+
+[node name="GoodRobot3" parent="GoodGuys" unique_id=2141401021 instance=ExtResource("5_ppgk2")]
+position = Vector2(120, 248)
+
+[node name="GoodRobot4" parent="GoodGuys" unique_id=1572997249 instance=ExtResource("5_ppgk2")]
+position = Vector2(168, 248)
+
+[node name="MaskSwitches" type="Node2D" parent="." unique_id=375162448]
+
+[node name="Switch" parent="MaskSwitches" unique_id=496952038 instance=ExtResource("4_mx8sn")]
+position = Vector2(200, 104)
+
+[node name="Switch2" parent="MaskSwitches" unique_id=1384814782 instance=ExtResource("4_mx8sn")]
+position = Vector2(224, 104)
+
+[node name="Switch3" parent="MaskSwitches" unique_id=136547982 instance=ExtResource("4_mx8sn")]
+position = Vector2(248, 104)
+scale = Vector2(-1, -1)
+
+[node name="Switch4" parent="MaskSwitches" unique_id=193784417 instance=ExtResource("4_mx8sn")]
+position = Vector2(272, 104)
+
+[node name="WiseSwitches" type="Node2D" parent="." unique_id=1012077977]
+
+[node name="Switch" parent="WiseSwitches" unique_id=105303698 instance=ExtResource("4_mx8sn")]
+position = Vector2(200, 312)
+
+[node name="Switch2" parent="WiseSwitches" unique_id=1956583663 instance=ExtResource("4_mx8sn")]
+position = Vector2(224, 312)
+scale = Vector2(-1, -1)
+
+[node name="Switch3" parent="WiseSwitches" unique_id=603576146 instance=ExtResource("4_mx8sn")]
+position = Vector2(248, 312)
+
+[node name="Switch4" parent="WiseSwitches" unique_id=525296182 instance=ExtResource("4_mx8sn")]
+position = Vector2(272, 312)
+
+[node name="Wise" parent="." unique_id=810523529 instance=ExtResource("6_2r41h")]
+position = Vector2(376, 328)

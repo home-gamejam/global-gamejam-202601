@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ckpvvpwfif1b1"]
+
+[ext_resource type="Texture2D" uid="uid://r8lvcjqfdgay" path="res://assets/tiles.png" id="1_1i7pn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew8i5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e08h5"]
+atlas = ExtResource("1_1i7pn")
+region = Rect2(32, 0, 16, 16)
+
+[node name="Switch" type="StaticBody2D" unique_id=496952038]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1865896698]
+shape = SubResource("RectangleShape2D_ew8i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=141293331]
+texture = SubResource("AtlasTexture_e08h5")
