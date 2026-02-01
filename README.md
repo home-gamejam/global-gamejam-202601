@@ -6,6 +6,8 @@
 
 Help your Blob-land friends escape Blob-land jail.
 
+Judah and Gage, North, and Wesley created a 2d platformer in Godot using Aseprite for game assets.
+
 ![Face Escape](docs/face-escape.gif)
 
 [Play Face Escape Online](https://home-gamejam.github.io/global-gamejam-202601/prison/)
